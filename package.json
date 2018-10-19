@@ -1,5 +1,5 @@
 {
-  "name": "daywalker",
+  "name": "Joe Condon",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -28,6 +28,7 @@
     },
     "extends": [
       "plugin:vue/essential",
+      // "plugin:prettier/recommended",
       "@vue/standard"
     ],
     "rules": {},
