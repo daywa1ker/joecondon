@@ -120,7 +120,7 @@ export default {
     text-align:right;
     height:100%;
     padding-top:0;
-    color: $grey-light;
+    color: #666666;
   }
 
   .r-section-content {
