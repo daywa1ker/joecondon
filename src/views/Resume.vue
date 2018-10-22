@@ -193,7 +193,7 @@ export default {
   }
 }
 
-@media (max-width: $tablet){
+@media (max-width: 768px){
   .r-section {
     display:block;
 
