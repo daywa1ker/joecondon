@@ -1,9 +1,11 @@
+const path = require('path')
+
 module.exports = {
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
       patterns: [
-        '/Users/daywalker/Documents/dev/joecondon/src/styles/common.scss'
+        path.resolve(__dirname, 'src/styles/common.scss')
       ]
     }
   },

@@ -2,9 +2,9 @@
   <div id="app">
     <vue-progress-bar />
     <button class="loading-toggle" @click='loading = !loading'>Toggle Loading</button>
-    <!-- <transition v-on:leave="leave">
+    <transition v-on:leave="leave">
       <Loading v-if="loading" />
-    </transition> -->
+    </transition>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
