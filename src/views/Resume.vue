@@ -96,7 +96,7 @@ export default {
 
 .r-section {
   display:grid;
-  grid-template-columns: 10% 1fr;
+  grid-template-columns: 15% 1fr;
   grid-column-gap:20px;
   margin-bottom:20px;
   max-width:800px;
@@ -120,7 +120,7 @@ export default {
     text-align:right;
     height:100%;
     padding-top:0;
-    color: #666666;
+    color: $grey-light;
   }
 
   .r-section-content {

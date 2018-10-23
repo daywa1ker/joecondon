@@ -7,7 +7,7 @@ import VueProgressBar from 'vue-progressbar'
 Vue.config.productionTip = false
 
 const PbOptions = {
-  color: 'blue',
+  color: '#0E1017',
   failedColor: 'red',
   thickness: '2px',
   transition: {
@@ -19,6 +19,11 @@ const PbOptions = {
 }
 
 Vue.use(VueProgressBar, PbOptions)
+
+router.beforeEach((to, from, next) => {
+  console.log('route change!')
+  next()
+})
 
 new Vue({
   router,
