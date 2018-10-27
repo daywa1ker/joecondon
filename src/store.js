@@ -19,6 +19,9 @@ export default new Vuex.Store({
     },
     toggleMenu (state) {
       state.menuOn = !state.menuOn
+    },
+    setProjects (state, payload) {
+      state.projects = payload
     }
   }
 })
