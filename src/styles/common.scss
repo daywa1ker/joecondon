@@ -1,10 +1,9 @@
 // common variables and such, included in each component via vue's styles-resources-loader (see vue.config)
 
-$white: #ffffff;
-$bg-dark: #0E1017;
-$bg-grey: #222327;
-$sunlight: #EfDF3A;
-$dark-red: #330e00;
+$white: #f0efef;
+$dark: #222222;
+$grey: #343434;
+$lime: #3adda6;
 
 // neutrals 
 
@@ -39,3 +38,36 @@ $x-large: 1500px;
 body {
 	margin:0;
 }
+
+@font-face {
+    font-family: 'SweetSans';
+    src: url('~@/assets/fonts/SweetSansPro-Bold.woff2') format('woff2'),
+        url('~@/assets/fonts/SweetSansPro-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SweetSans';
+    src: url('~@/assets/fonts/SweetSansPro-Regular.woff2') format('woff2'),
+        url('~@/assets/fonts/SweetSansPro-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SweetSans';
+    src: url('~@/assets/fonts/SweetSans-Thin.woff2') format('woff2'),
+        url('~@/assets/fonts/SweetSans-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SweetSans';
+    src: url('~@/assets/fonts/SweetSansPro-Medium.woff2') format('woff2'),
+        url('~@/assets/fonts/SweetSansPro-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+

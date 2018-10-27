@@ -23,6 +23,11 @@ export default new Router({
       path: '/resume',
       name: 'resume',
       component: () => import(/* webpackChunkName: "resume" */ './views/Resume.vue')
+    },
+    {
+      path: '/work',
+      name: 'work',
+      component: () => import(/* webpackChunkName: "resume" */ './views/Work.vue')
     }
   ]
 })

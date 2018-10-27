@@ -5,12 +5,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    loading: true
+    loading: true,
+    menuOn: false,
+    projects: [],
+    fetchingPage: false
   },
   mutations: {
-
-  },
-  actions: {
-
+    finishLoading (state) {
+      state.loading = false
+    },
+    startLoading (state) {
+      state.loading = true
+    },
+    toggleMenu (state) {
+      state.menuOn = !state.menuOn
+    }
   }
 })

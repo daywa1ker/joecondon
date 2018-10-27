@@ -48,7 +48,7 @@ export default {
     }
   },
   created () {
-    this.$emit('ProgressStart')
+    // this.$emit('ProgressStart')
 
     axios.get('http://joecondon.net/wp/wp-json/acf/v3/pages/484') // see wp api docs
       .then(response => {
@@ -62,7 +62,7 @@ export default {
     axios.get('http://joecondon.net/wp/wp-json/wp/v2/jobs')
       .then(response => {
         this.jobs_feed = response.data
-        this.$emit('ProgressFinish')
+        // this.$emit('ProgressFinish')
         console.log("I'm done!")
       })
       .catch(er => {
@@ -193,7 +193,7 @@ export default {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: $tablet){
   .r-section {
     display:block;
 

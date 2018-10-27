@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <vue-progress-bar />
+    <MenuToggle />
     <button class="loading-toggle" @click='loading = !loading'>Toggle Loading</button>
     <transition v-on:leave="leave">
       <Loading v-if="loading" />
@@ -8,7 +9,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/resume">Resume</router-link>
+      <router-link to="/resume">Resume</router-link> |
+      <router-link to="/work">Work</router-link>
     </div>
     <router-view v-on:ProgressStart="startProgress" v-on:ProgressFinish="finishProgress"/>
   </div>
@@ -18,6 +20,7 @@
 
 import Velocity from 'velocity-animate'
 import Loading from '@/components/Loading'
+import MenuToggle from '@/components/MenuToggle'
 
 export default {
   name: 'App',
@@ -27,18 +30,19 @@ export default {
     }
   },
   components: {
-    Loading
+    Loading,
+    MenuToggle
   },
   methods: {
     leave: function (el, done) {
-      Velocity(el, { translateY: '-100%' }, { duration: 600, easing: 'easeOutCubic', queue: false })
+      Velocity(el, { translateY: '-100%' }, { duration: 700, easing: 'easeInOutCubic', queue: false })
       Velocity(el, { skewY: '-4deg' },
         {
-          duration: 300,
-          easing: 'easeOutSine',
+          duration: 350,
+          easing: 'easeOutCubic',
           queue: false,
           complete: function (el) {
-            Velocity(el, { skewY: '0deg' }, { duration: 300, easing: 'easeOutSine'
+            Velocity(el, { skewY: '0deg' }, { duration: 350, easing: 'easeOutSine'
             })
           }
         })
@@ -51,6 +55,9 @@ export default {
       this.$Progress.finish()
       this.loading = false
     }
+  },
+  mounted () {
+    this.loading = false
   }
 }
 
@@ -67,7 +74,7 @@ img {max-width: 100%;height: auto;}
 // end reset
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'SweetSans','Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -87,7 +94,7 @@ img {max-width: 100%;height: auto;}
 .loading-toggle {
   position:absolute;
   top:10px;
-  left:10px;
+  right:10px;
   z-index:100;
 }
 </style>
