@@ -1,5 +1,5 @@
 <template>
-  <svg class="menuToggle" @click="toggleMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.59 56.59">
+  <svg class="menuToggle" v-bind:class="{ active: menuOn }" @click="toggleMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.59 56.59">
     <title>Menu Toggle</title>
     <g id="Layer_1-2" data-name="Layer 1">
       <line class="mt-line" id="mt1" x1="56.29" y1="11.54" x2="0.29" y2="11.54" fill="none" stroke-miterlimit="10"/>
@@ -14,9 +14,9 @@
 
 export default {
   name: 'MenuToggle',
-  data () {
-    return {
-      menuOn: this.$store.state.menuOn
+  computed: {
+    menuOn () {
+      return this.$store.state.menuOn
     }
   },
   methods: {
@@ -33,9 +33,14 @@ export default {
   width:40px;
   height:40px;
   position:absolute;
+  z-index:100;
   left:10px;
   top:10px;
   stroke:$dark;
   stroke-width:3px;
+
+  &.active {
+    stroke:$white;
+  }
 }
 </style>

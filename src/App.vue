@@ -2,6 +2,7 @@
   <div id="app">
     <vue-progress-bar />
     <MenuToggle />
+    <MenuPanel v-if="this.$store.state.menuOn"/>
     <button class="loading-toggle" @click='loading = !loading'>Toggle Loading</button>
     <transition v-on:leave="leave">
       <Loading v-if="loading" />
@@ -21,17 +22,20 @@
 import Velocity from 'velocity-animate'
 import Loading from '@/components/Loading'
 import MenuToggle from '@/components/MenuToggle'
+import MenuPanel from '@/components/MenuPanel'
 
 export default {
   name: 'App',
   data () {
     return {
-      loading: this.$store.state.loading
+      loading: this.$store.state.loading,
+      menuOn: this.$store.state.menuOn
     }
   },
   components: {
     Loading,
-    MenuToggle
+    MenuToggle,
+    MenuPanel
   },
   methods: {
     leave: function (el, done) {

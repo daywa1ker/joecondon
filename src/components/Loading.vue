@@ -19,24 +19,42 @@ export default {
       .then(response => {
         // console.log(response.data)
         let projects = response.data
+        projects = projects.reverse()
         let payload = []
 
-        projects.forEach((project) => {
+        let decodeHtmlEntity = function (str) {
+          return str.replace(/&#(\d+);/g, function (match, dec) {
+            return String.fromCharCode(dec)
+          })
+        }
+
+        let formatMenuNum = function (num) {
+          let newNum = num + 1
+          let stringNum = String(newNum)
+          if (stringNum.length < 2) {
+            stringNum = '0' + stringNum
+            return stringNum
+          } else {
+            return stringNum
+          }
+        }
+
+        projects.forEach((project, index) => {
           payload.push({
             // 'id': ,
-            'title': project.title.rendered,
+            'title': decodeHtmlEntity(project.title.rendered),
             'role': project.acf.project_role,
             'image': project.acf.featured_image,
             'agency': project.acf.agency,
             'description': project.acf.project_description,
             'link': project.acf.website_link,
             'awards': project.acf.awards,
-            'id': project.id
+            'id': project.id,
+            'menuClass': ((index + 1) % 4),
+            'menuNum': formatMenuNum(index)
 
           })
         })
-
-        payload = payload.reverse()
 
         this.$store.commit('setProjects', payload)
         this.$store.commit('finishLoading')
